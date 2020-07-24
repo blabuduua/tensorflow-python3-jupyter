@@ -11,11 +11,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libzmq3-dev \
         pkg-config \
         python \
-        python3 \
-        python3-dev \
+        python2 \
+        python2-dev \
         python-pip \
-        python3-pip \
-        python3-setuptools \
+        python2-pip \
+        python2-setuptools \
         rsync \
         software-properties-common \
         unzip \
@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-FROM python:3
+FROM python:2
 
 RUN pip install --upgrade pip
 
@@ -39,7 +39,7 @@ RUN pip3 --no-cache-dir install \
         nltk \
         Pillow \
         && \
-    python3 -m ipykernel.kernelspec
+    python2 -m ipykernel.kernelspec
 
 
 # --- DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
@@ -52,7 +52,7 @@ RUN pip3 --no-cache-dir install \
 RUN pip3 --no-cache-dir install tensorflow==1.15
 # --- ~ DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
 
-# RUN ln -s /usr/bin/python3 /usr/bin/python#
+# RUN ln -s /usr/bin/python2 /usr/bin/python#
 
 # Set up our notebook config.
 COPY jupyter_notebook_config.py /root/.jupyter/
