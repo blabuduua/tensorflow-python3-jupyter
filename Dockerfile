@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python3.7 -m pip install --upgrade pip
+RUN python3 -m pip3 install --upgrade pip3
 
 RUN pip3 --no-cache-dir install \
         ipykernel \
@@ -47,7 +47,7 @@ RUN pip3 --no-cache-dir install \
 # RUN rm -f /_PIP_FILE_
 
 # Install TensorFlow CPU version from central repo
-RUN pip install tensorflow==1.15
+RUN pip3 --no-cache-dir install tensorflow==1.15
 # --- ~ DO NOT EDIT OR DELETE BETWEEN THE LINES --- #
 
 # RUN ln -s /usr/bin/python3 /usr/bin/python#
